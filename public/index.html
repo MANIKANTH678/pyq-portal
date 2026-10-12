@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OU PYQ Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form method="get">
+    <header>
+      <a class="brand" href="/">OU PYQ Portal</a>
+      <input type="search" name="q" placeholder="Search subject, like DBMS">
+      <button>Search</button>
+    </header>
+
+    <section class="card">
+      <h2>Filters</h2>
+      <div class="grid">
+        <label>Branch
+          <select name="branch">
+            <option value="">All</option>
+            <option>CSE</option><option>ECE</option><option>EEE</option>
+            <option>MECH</option><option>CIVIL</option><option>IT</option>
+          </select>
+        </label>
+        <label>Semester
+          <select name="semester">
+            <option value="">All</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+        </label>
+        <label>Subject
+          <select name="subject"><option value="">All</option></select>
+        </label>
+        <label>Year
+          <select name="year"><option value="">All years</option></select>
+        </label>
+      </div>
+    </section>
+  </form>
+
+  <section class="card">
+    <h2 id="summary">Loading…</h2>
+    <ul id="papers"></ul>
+  </section>
+
+  <script src="student.js"></script>
+</body>
+</html>
+

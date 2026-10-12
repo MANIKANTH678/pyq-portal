@@ -1,0 +1,84 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui, sans-serif;
+  color: #1c1c1c;
+  background: #e8ebeb;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #12161c;
+  color: #9aa0a6;
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+header input { flex: 1; min-width: 12rem; background: #fff; }
+
+.card {
+  width: min(960px, 100% - 2rem);
+  margin: 1.5rem auto;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px #0002;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+label { display: grid; gap: 0.3rem; font-size: 0.9rem; font-weight: 600; }
+
+input, select, button {
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f2f3f3;
+  min-width: 0;
+}
+
+input[pattern]:invalid:not(:placeholder-shown) { border-color: #c0392b; }
+
+button { border: 0; background: #fbbd68; font-weight: 600; cursor: pointer; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+li > :first-child { flex: 1; }
+li strong { display: block; color: #0d6773; }
+li small { color: #666; }
+li button { border: 1px solid #ccc; background: none; }
+
+a { color: #0d6773; }
+
+#status { margin: 1rem 0 0; font-weight: 600; }
