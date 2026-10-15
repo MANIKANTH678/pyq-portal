@@ -28,7 +28,16 @@ with `-backlog` before `.pdf` for a backlog exam, for example
 - Branch: CSE, AIML, ECE, EEE, MECH, CIVIL or IT
 - Semester: 1 to 8
 - Subject: 2 to 6 capital letters, like DBMS
-- PDF only, at most 10 MB. Scans shrink a lot if you compress them first.
+- PDF only, at most 10 MB.
+
+PDFs are compressed automatically when you commit. Set it up once per clone:
+
+```
+pip install pymupdf
+git config core.hooksPath .githooks
+```
+
+The site build also compresses anything that got in without the hook.
 
 **With a pull request:** on GitHub, open the folder the paper belongs in,
 choose *Add file → Upload files*, and drop the PDF. If the subject folder

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Compresses the PDFs being committed, so full-size scans never enter history.
+# Enable once per clone: git config core.hooksPath .githooks
+IFS='
+'
+files=$(git diff --cached --name-only --diff-filter=AM -- '*.pdf')
+[ -z "$files" ] && exit 0
+python compress.py $files && git add $files
