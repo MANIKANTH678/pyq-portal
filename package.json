@@ -2,11 +2,7 @@
   "name": "pyq-portal",
   "private": true,
   "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "better-sqlite3": "^12.11.1",
-    "express": "^5.1.0",
-    "multer": "^2.0.2"
+    "build": "node build-index.js",
+    "start": "node build-index.js && npx serve public"
   }
 }
