@@ -6,7 +6,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, 'public', 'papers');
 const MAX_SIZE = 10 * 1024 * 1024;
-const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z]{2,6})\/\3-(20\d{2})(-backlog)?\.pdf$/;
+const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z]{2,20})\/\3-(20\d{2})(-backlog)?\.pdf$/;
 
 const papers = [];
 const errors = [];
