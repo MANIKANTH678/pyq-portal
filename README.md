@@ -19,15 +19,17 @@ npm start
 Every paper goes at
 
 ```
-public/papers/<branch>/<semester>/<SUBJECT>/<SUBJECT>-<year>.pdf
+public/papers/<branch>/<semester>/<SUBJECT>/<SUBJECT>-<year>-<type>.pdf
 ```
 
-with `-backlog` before `.pdf` for a backlog exam, for example
-`public/papers/CSE/5/DBMS/DBMS-2025-backlog.pdf`.
+where `<type>` is one of `main`, `mid1`, `mid2` or `backlog`, for example
+`public/papers/CSE/5/DBMS/DBMS-2025-main.pdf`.
 
 - Branch: CSE, AIML, ECE, EEE, MECH, CIVIL or IT
 - Semester: 1 to 8
-- Subject: 2 to 6 capital letters, like DBMS
+- Subject: 2 to 20 capital letters, like DBMS
+- Year: 4 digits, like 2025
+- Type: `main`, `mid1`, `mid2` or `backlog`
 - PDF only, at most 10 MB.
 
 PDFs are compressed automatically when you commit. Set it up once per clone:
