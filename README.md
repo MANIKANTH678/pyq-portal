@@ -27,7 +27,7 @@ where `<type>` is one of `main`, `mid1`, `mid2` or `backlog`, for example
 
 - Branch: CSE, AIML, ECE, EEE, MECH, CIVIL or IT
 - Semester: 1 to 8
-- Subject: 2 to 20 capital letters, like DBMS
+- Subject: 2 to 20 characters, starting with a letter; letters and digits, like DBMS or EM3
 - Year: 4 digits, like 2025
 - Type: `main`, `mid1`, `mid2` or `backlog`
 - PDF only, at most 10 MB.
