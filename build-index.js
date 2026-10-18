@@ -1,12 +1,12 @@
 // Scans public/papers and writes public/papers.json, the index the site searches.
-// The folder path is the metadata: papers/<branch>/<semester>/<subject>/<subject>-<year>[-backlog].pdf
+// The folder path is the metadata: papers/<branch>/<semester>/<subject>/<subject>-<year>-<type>.pdf
 // Any file that breaks the rules fails the build, so a bad PR fails its check.
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, 'public', 'papers');
 const MAX_SIZE = 10 * 1024 * 1024;
-const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z]{2,20})\/\3-(20\d{2})(-backlog)?\.pdf$/;
+const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z]{2,20})\/\3-(20\d{2})-(main|mid1|mid2|backlog)\.pdf$/;
 
 const papers = [];
 const errors = [];
@@ -18,8 +18,8 @@ for (const file of fs.readdirSync(ROOT, { recursive: true })) {
   const rel = file.split(path.sep).join('/');
   const match = rel.match(PATTERN);
   if (!match) {
-    errors.push(`${rel}: expected <branch>/<semester>/<SUBJECT>/<SUBJECT>-<year>[-backlog].pdf`);
-    continue;
+     errors.push(`${rel}: expected <branch>/<semester>/<SUBJECT>/<SUBJECT>-<year>-<main|mid1|mid2|backlog>.pdf`);	  
+        continue;
   }
   if (fs.statSync(full).size > MAX_SIZE) {
     errors.push(`${rel}: larger than 10 MB, compress it first`);
@@ -35,13 +35,13 @@ for (const file of fs.readdirSync(ROOT, { recursive: true })) {
     continue;
   }
 
-  const [, branch, semester, subject, year, backlog] = match;
+  const [, branch, semester, subject, year, examType] = match;
   papers.push({
     branch,
     semester: Number(semester),
     subject,
     year: Number(year),
-    exam_type: backlog ? 'backlog' : 'main',
+    exam_type: examType,
     file: `papers/${rel}`,
   });
 }
