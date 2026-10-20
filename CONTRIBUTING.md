@@ -1,4 +1,4 @@
-# Contributors
+# Hall of Fame
 
 Thanks to everyone who sent in papers or helped build this site.
 

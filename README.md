@@ -50,9 +50,9 @@ or the file is wrong.
 **Without git:** open an issue with the *Submit a question paper* form and
 attach the PDF. A maintainer adds it.
 
-## Contributors
+## Hall of Fame
 
-See [CONTRIBUTORS.md](CONTRIBUTORS.md). To be listed, say what name and picture you
+See [CONTRIBUTING.md](CONTRIBUTING.md). To be listed, say what name and picture you
 want, or leave the "Name to credit" box blank in the form to stay unlisted.
 Pull requests show your GitHub username, so use the form to stay anonymous.
 
