@@ -46,6 +46,12 @@ async function load() {
     });
 
     form.addEventListener('submit', (e) => e.preventDefault());
+
+    document.getElementById('reset-filters').addEventListener('click', () => {
+      form.reset();
+      updateSubjectDropdown();
+      applyFilters();
+    });
   } catch (err) {
     console.error(err);
     document.getElementById('summary').textContent = "Error loading papers.";
