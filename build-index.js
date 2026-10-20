@@ -51,6 +51,7 @@ if (errors.length) {
   process.exit(1);
 }
 
-papers.sort((a, b) => b.year - a.year || b.exam_type.localeCompare(a.exam_type) || a.file.localeCompare(b.file));
+const TYPES = ['mid1', 'mid2', 'main', 'backlog'];
+papers.sort((a, b) => a.subject.localeCompare(b.subject) || b.year - a.year || TYPES.indexOf(a.exam_type) - TYPES.indexOf(b.exam_type) || a.file.localeCompare(b.file));
 fs.writeFileSync(path.join(__dirname, 'public', 'papers.json'), JSON.stringify(papers));
 console.log(`Indexed ${papers.length} papers`);
