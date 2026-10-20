@@ -1,0 +1,47 @@
+name: Submit a question paper
+description: Attach a PDF and a maintainer will add it to the site.
+title: "Paper: <SUBJECT> <year>"
+labels: [paper]
+body:
+  - type: dropdown
+    id: branch
+    attributes:
+      label: Branch
+      options: [CSE, AIML, ECE, EEE, MECH, CIVIL, IT]
+    validations:
+      required: true
+  - type: dropdown
+    id: semester
+    attributes:
+      label: Semester
+      options: ["1", "2", "3", "4", "5", "6", "7", "8"]
+    validations:
+      required: true
+  - type: input
+    id: subject
+    attributes:
+      label: Subject
+      description: Short form in capitals, like DBMS
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Year
+      placeholder: "2025"
+    validations:
+      required: true
+  - type: dropdown
+    id: exam_type
+    attributes:
+      label: Exam
+      options: [Main, Backlog]
+    validations:
+      required: true
+  - type: textarea
+    id: file
+    attributes:
+      label: PDF
+      description: Drag the PDF into this box. Up to 10 MB.
+    validations:
+      required: true

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OU PYQ Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form method="get">
+    <header>
+      <a class="brand" href="./">OU PYQ Portal</a>
+      <!-- The search input searches instantly as you type -->
+      <input type="search" id="search-input" name="q" placeholder="Search subject, branch, year...">
+      <!-- The button is hidden because we use instant search now -->
+      <button type="submit" style="display: none;">Search</button>
+    </header>
+
+    <section class="card">
+      <h2>Filters</h2>
+      <div class="grid">
+        <label>Branch
+          <select name="branch">
+            <option value="">All</option>
+            <option>CSE</option><option>AIML</option><option>ECE</option><option>EEE</option>
+            <option>MECH</option><option>CIVIL</option><option>IT</option>
+          </select>
+        </label>
+        <label>Semester
+          <select name="semester">
+            <option value="">All</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+        </label>
+        <label>Subject
+          <select name="subject"><option value="">All</option></select>
+        </label>
+        <label>Year
+          <select name="year"><option value="">All years</option></select>
+        </label>
+
+        <label>Exam Type
+          <select name="exam_type">
+            <option value="">All Types</option>
+            <option value="main">Main</option>
+            <option value="mid1">Mid 1</option>
+            <option value="mid2">Mid 2</option>
+            <option value="backlog">Backlog</option>
+          </select>
+        </label>
+
+      </div>
+    </section>
+  </form>
+
+  <section class="card">
+    <h2 id="summary">Loading…</h2>
+    <ul id="papers"></ul>
+    
+    <!-- ✅ ADDED PAGINATION CONTAINER HERE -->
+    <div id="pagination" class="pagination"></div>
+  </section>
+
+  <script src="student.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "pyq-portal",
+  "private": true,
+  "scripts": {
+    "build": "node build-index.js",
+    "start": "node build-index.js && npx serve public"
+  }
+}
