@@ -95,9 +95,9 @@ function applyFilters() {
 
   // 2. Smart Search
   if (query) {
-    const searchWords = query.split(' ');
+    const searchWords = query.split(/\s+/);
     filteredPapers = filteredPapers.map(paper => {
-      const searchString = `${paper.subject} ${paper.branch} ${paper.year} ${paper.semester} ${paper.exam_type}`.toLowerCase();
+      const searchString = `${paper.subject} ${paper.name} ${paper.branch} ${paper.year} ${paper.semester} ${paper.exam_type}`.toLowerCase();
       let score = 0;
       let matchesAll = true;
 
