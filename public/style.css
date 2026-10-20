@@ -137,3 +137,11 @@ a:hover {
   gap: 0.5rem;
   margin-top: 1rem;
 }
+
+#reset-filters {
+  float: right;
+  padding: 0.25rem 0.6rem;
+  background: #eee;
+  color: #555;
+  font-size: 0.85rem;
+}
