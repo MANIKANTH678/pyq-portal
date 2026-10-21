@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OU PYQ Portal</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Runs before the page draws, so a saved theme never flashes the wrong colours -->
+  <script>
+    const theme = localStorage.getItem('theme');
+    if (theme) document.documentElement.dataset.theme = theme;
+  </script>
 </head>
 <body>
   <form method="get">
@@ -14,6 +19,12 @@
       <input type="search" id="search-input" name="q" placeholder="Search">
       <!-- The button is hidden because we use instant search now -->
       <button type="submit" style="display: none;">Search</button>
+      <button type="button" id="theme-toggle" aria-label="Switch light or dark mode">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>
+        </svg>
+      </button>
     </header>
 
     <section class="card">

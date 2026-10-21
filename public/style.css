@@ -1,10 +1,30 @@
 * { box-sizing: border-box; }
 
+/* Each colour is light-dark(light value, dark value). The page follows the
+   device setting until the theme button sets data-theme on <html>. */
+:root {
+  color-scheme: light dark;
+  --bg:        light-dark(#f5f5f5, #1a1918);
+  --surface:   light-dark(#ffffff, #262624);
+  --field:     light-dark(#fafafa, #30302e);
+  --text:      light-dark(#333333, #dedcd5);
+  --heading:   light-dark(#222222, #f5f4ef);
+  --muted:     light-dark(#6b6b6b, #a3a19a);
+  --border:    light-dark(#dddddd, #45443f);
+  --divider:   light-dark(#eeeeee, #353431);
+  --accent:    light-dark(#c2410c, #ff6a00); /* links: darker on white so they stay readable */
+  --on-accent: light-dark(#ffffff, #1a1918);
+  --danger:    light-dark(#c0392b, #ef6f5e);
+  --brand:     #ff6a00;
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
+
 body {
   margin: 0;
   font: 15px/1.5 system-ui, sans-serif;
-  color: #333; /* Changed from #1c1c1c to dark grey */
-  background: #f5f5f5; /* Changed to Alibaba light grey */
+  color: var(--text);
+  background: var(--bg);
 }
 
 header {
@@ -13,40 +33,59 @@ header {
   gap: 1rem 1.5rem;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background: #ffffff; /* Changed from dark to white */
-  color: #666; /* Changed text color for white background */
-  border-bottom: 1px solid #eaeaea; /* Added subtle border */
+  background: var(--surface);
+  color: var(--muted);
+  border-bottom: 3px solid var(--brand);
 }
 
 .brand {
-  color: #ff6a00; /* Changed to Alibaba Orange */
+  color: var(--brand);
   font-size: 1.35rem;
   font-weight: 700;
   text-decoration: none;
 }
 
-header input { 
-  flex: 1; 
-  min-width: 12rem; 
-  background: #fff; 
-  border: 1px solid #ddd; /* Added border to stand out on white */
+header input {
+  flex: 1;
+  min-width: 12rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+#theme-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: none;
+  color: var(--text);
+}
+
+/* Phones: search drops to its own line so the button stays top-right */
+@media (max-width: 600px) {
+  header input { order: 1; flex-basis: 100%; }
 }
 
 .card {
   width: min(960px, 100% - 2rem);
   margin: 1.5rem auto;
   padding: 1.25rem 1.5rem;
-  background: #fff;
+  background: var(--surface);
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Softened shadow */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 h2 {
   margin: 0 0 0.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--divider);
   font-size: 1.1rem;
-  color: #222;
+  color: var(--heading);
 }
 
 .grid {
@@ -56,39 +95,40 @@ h2 {
   margin: 1rem 0;
 }
 
-label { 
-  display: grid; 
-  gap: 0.3rem; 
-  font-size: 0.9rem; 
-  font-weight: 600; 
-  color: #444;
+label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 input, select, button {
   font: inherit;
   padding: 0.5rem 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 4px;
-  background: #fafafa; /* Very light grey */
+  color: var(--text);
+  background: var(--field);
   min-width: 0;
 }
 
-input[pattern]:invalid:not(:placeholder-shown) { 
-  border-color: #c0392b; 
+input[pattern]:invalid:not(:placeholder-shown) {
+  border-color: var(--danger);
 }
 
-button { 
-  border: 0; 
-  background: #ff6a00; /* Changed to Alibaba Orange */
-  color: #fff; /* White text */
-  font-weight: 600; 
-  cursor: pointer; 
+button {
+  border: 0;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  cursor: pointer;
 }
 
-ul { 
-  margin: 0; 
-  padding: 0; 
-  list-style: none; 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 li {
@@ -96,28 +136,28 @@ li {
   gap: 1rem;
   align-items: center;
   padding: 0.9rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--divider);
 }
 
 li > :first-child { flex: 1; }
 
-li strong { 
-  display: block; 
-  color: #222; /* Changed from teal to dark grey */
+li strong {
+  display: block;
+  color: var(--heading);
   font-size: 1.05rem;
 }
 
-li small { 
-  color: #777; 
+li small {
+  color: var(--muted);
 }
 
-li button { 
-  border: 1px solid #ddd; 
-  background: none; 
+li button {
+  border: 1px solid var(--border);
+  background: none;
 }
 
-a { 
-  color: #ff6a00; /* Changed links to Alibaba Orange */
+a {
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -125,9 +165,9 @@ a:hover {
   text-decoration: underline;
 }
 
-#status { 
-  margin: 1rem 0 0; 
-  font-weight: 600; 
+#status {
+  margin: 1rem 0 0;
+  font-weight: 600;
 }
 
 .pagination {
@@ -141,7 +181,7 @@ a:hover {
 #reset-filters {
   float: right;
   padding: 0.25rem 0.6rem;
-  background: #eee;
-  color: #555;
+  background: var(--divider);
+  color: var(--muted);
   font-size: 0.85rem;
 }
