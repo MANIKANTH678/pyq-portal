@@ -52,9 +52,22 @@ header input {
 }
 
 #theme-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  padding: 0;
   border: 1px solid var(--border);
+  border-radius: 50%;
   background: none;
   color: var(--text);
+}
+
+/* Phones: search drops to its own line so the button stays top-right */
+@media (max-width: 600px) {
+  header input { order: 1; flex-basis: 100%; }
 }
 
 .card {
