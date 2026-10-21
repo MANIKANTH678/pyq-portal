@@ -4,17 +4,18 @@
    device setting until the theme button sets data-theme on <html>. */
 :root {
   color-scheme: light dark;
-  --bg:        light-dark(#f5f4ef, #1a1918);
+  --bg:        light-dark(#f5f5f5, #1a1918);
   --surface:   light-dark(#ffffff, #262624);
-  --field:     light-dark(#fafaf8, #30302e);
+  --field:     light-dark(#fafafa, #30302e);
   --text:      light-dark(#333333, #dedcd5);
   --heading:   light-dark(#222222, #f5f4ef);
-  --muted:     light-dark(#6b6a65, #a3a19a);
+  --muted:     light-dark(#6b6b6b, #a3a19a);
   --border:    light-dark(#dddddd, #45443f);
   --divider:   light-dark(#eeeeee, #353431);
-  --accent:    light-dark(#c2410c, #ff6a00);
+  --accent:    light-dark(#c2410c, #ff6a00); /* links: darker on white so they stay readable */
   --on-accent: light-dark(#ffffff, #1a1918);
   --danger:    light-dark(#c0392b, #ef6f5e);
+  --brand:     #ff6a00;
 }
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"]  { color-scheme: dark; }
@@ -34,11 +35,11 @@ header {
   padding: 0.75rem 1.5rem;
   background: var(--surface);
   color: var(--muted);
-  border-bottom: 1px solid var(--divider);
+  border-bottom: 3px solid var(--brand);
 }
 
 .brand {
-  color: var(--accent);
+  color: var(--brand);
   font-size: 1.35rem;
   font-weight: 700;
   text-decoration: none;
