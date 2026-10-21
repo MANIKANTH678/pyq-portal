@@ -38,6 +38,11 @@ body:
       options: [Main, Backlog]
     validations:
       required: true
+  - type: input
+    id: credit
+    attributes:
+      label: Name to credit (optional)
+      description: Shown in CONTRIBUTING.md. Leave blank to stay unlisted. This issue still shows your GitHub account.
   - type: textarea
     id: file
     attributes:
