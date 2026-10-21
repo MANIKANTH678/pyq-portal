@@ -15,6 +15,16 @@ const getExamLabel = (type) => {
   return labels[type] || 'Backlog';
 };
 
+// Theme switch: flips whatever is showing now and remembers the choice.
+document.getElementById('theme-toggle').onclick = () => {
+  const root = document.documentElement;
+  const isDark = root.dataset.theme
+    ? root.dataset.theme === 'dark'
+    : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = isDark ? 'light' : 'dark';
+  localStorage.setItem('theme', root.dataset.theme);
+};
+
 // Populate Year Dropdown
 for (let y = new Date().getFullYear(); y >= 2015; y--) form.year.add(new Option(y));
 
