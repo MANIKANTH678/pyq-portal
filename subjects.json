@@ -25,5 +25,10 @@
   "SANDS": "Signals and Systems",
   "SE": "Software Engineering",
   "WP": "Web Programming",
-  "WPLAB": "Web Programming Lab"
+  "WPLAB": "Web Programming Lab",
+  "3DPT": "3D Printing Technology",
+  "CD": "Compiler Design",
+  "CN": "Computer Networks",
+  "DL": "Deep Learning",
+  "HCI": "Human Computer Interaction"
 }
