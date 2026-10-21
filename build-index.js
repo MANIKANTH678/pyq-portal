@@ -7,7 +7,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, 'public', 'papers');
 const MAX_SIZE = 10 * 1024 * 1024;
 const NAMES = require('./subjects.json');
-const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z][A-Z0-9]{1,19})\/\3-(20\d{2})-(main|mid1|mid2|backlog)\.pdf$/;
+const PATTERN = /^(CSE|AIML|ECE|EEE|MECH|CIVIL|IT)\/([1-8])\/([A-Z0-9][A-Z0-9]{1,19})\/\3-(20\d{2})-(main|mid1|mid2|backlog)\.pdf$/;
 
 const papers = [];
 const errors = [];
