@@ -14,7 +14,6 @@
   --divider:   light-dark(#eeeeee, #353431);
   --accent:    light-dark(#c2410c, #ff6a00); /* links: darker on white so they stay readable */
   --on-accent: light-dark(#ffffff, #1a1918);
-  --danger:    light-dark(#c0392b, #ef6f5e);
   --brand:     #ff6a00;
 }
 :root[data-theme="light"] { color-scheme: light; }
@@ -113,10 +112,6 @@ input, select, button {
   min-width: 0;
 }
 
-input[pattern]:invalid:not(:placeholder-shown) {
-  border-color: var(--danger);
-}
-
 button {
   border: 0;
   background: var(--accent);
@@ -151,11 +146,6 @@ li small {
   color: var(--muted);
 }
 
-li button {
-  border: 1px solid var(--border);
-  background: none;
-}
-
 a {
   color: var(--accent);
   text-decoration: none;
@@ -163,11 +153,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-#status {
-  margin: 1rem 0 0;
-  font-weight: 600;
 }
 
 .pagination {

@@ -9,10 +9,9 @@ let filteredPapers = []; // Holds the results after filtering
 let currentPage = 1;
 const ITEMS_PER_PAGE = 12; // Change this to show more/less per page
 
-// ✅ HELPER: Fix the Mid 1 / Mid 2 / Backlog mapping
 const getExamLabel = (type) => {
   const labels = { 'main': 'Main', 'mid1': 'Mid 1', 'mid2': 'Mid 2', 'backlog': 'Backlog' };
-  return labels[type] || 'Backlog';
+  return labels[type];
 };
 
 // Theme switch: flips whatever is showing now and remembers the choice.
@@ -36,15 +35,14 @@ async function load() {
 
     // Restore state from URL
     for (const [key, value] of params) {
-      if (form.elements[key] && key !== 'q') form.elements[key].value = value;
+      if (form.elements[key]) form.elements[key].value = value;
     }
-    if (params.get('q') && searchInput) searchInput.value = params.get('q');
 
     updateSubjectDropdown();
     applyFilters(); // Initial run
 
     // Event Listeners
-    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    searchInput.addEventListener('input', applyFilters);
     
     form.addEventListener('change', (e) => {
       if (e.target.tagName !== 'SELECT') return;
@@ -91,7 +89,7 @@ function applyFilters() {
   const subject = form.subject.value;
   const year = form.year.value;
   const examType = form.exam_type.value;
-  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const query = searchInput.value.toLowerCase().trim();
 
   // 1. Basic Dropdown Filters
   filteredPapers = allPapers.filter(p => {
@@ -136,9 +134,6 @@ function applyFilters() {
 function renderPage() {
   const totalItems = filteredPapers.length;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-
-  // Make sure currentPage doesn't exceed totalPages
-  if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
 
   // Slice the array to get only the papers for the current page
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
