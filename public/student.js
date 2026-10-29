@@ -198,4 +198,14 @@ window.changePage = function(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on page change
 };
 
+// Total visits from the public GoatCounter counter. Stays hidden if it can't load.
+fetch('https://manikanth.goatcounter.com/counter/TOTAL.json')
+  .then((response) => response.json())
+  .then((data) => {
+    const visits = document.getElementById('total-visits');
+    visits.querySelector('span').textContent = data.count;
+    visits.hidden = false;
+  })
+  .catch(() => {});
+
 load();
